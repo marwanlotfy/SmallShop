@@ -1,0 +1,40 @@
+{
+  "name": "smallshop",
+  "version": "0.1.0",
+  "description": "a front end app for small shop",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "SmallShop"
+  ],
+  "author": "Marwan Lotfy <marwandevelop@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-syntax-jsx": "^7.10.1",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.10.1",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "dotenv-webpack": "^1.8.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "path": "^0.12.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
