@@ -11,24 +11,30 @@ class Books extends React.Component{
         this.bookServices = new BookServices
     }
     componentDidMount(){
+        this.setState({isLoading:true})
         this.bookServices.getBooks( 
-            (books) => this.setState({books}),
+            (books) => this.setState({books,isLoading:false}),
             this.state.booksFilter
          )
     }
     render(){
-        const { books } = this.state
+        const { books , isLoading} = this.state
         return(
             <>
                 <h1>Books</h1>
+                {isLoading?(
+                    <div>...loading</div>
+                ):(
                 <table>
                     <thead>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>category</th>
-                        <th>author</th>
-                        <th>edition</th>
-                        <th>price</th>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>category</th>
+                            <th>author</th>
+                            <th>edition</th>
+                            <th>price</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {books.map( book  => (
@@ -43,6 +49,7 @@ class Books extends React.Component{
                         ))}
                     </tbody>
                 </table>
+                )}
             </>
         )
     }
