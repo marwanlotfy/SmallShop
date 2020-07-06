@@ -5,6 +5,7 @@ import NavBar from './ui/components/_layout/NavBar';
 import { Switch , Route, BrowserRouter as Router } from 'react-router-dom'
 import StatusListiner from './core/domain/services/StatusListiner';
 import OnlineBar from './ui/components/_layout/OnlineBar';
+import { Col, Row } from 'reactstrap';
 
 class App extends React.Component{
     constructor(props){
@@ -26,16 +27,24 @@ class App extends React.Component{
     render(){
         return(
             <Router>
-                <OnlineBar Online={this.state.isOnline} />
-                <NavBar />
-                <Switch>
-                    <Route path="/" exact>
-                        <Books />
-                    </Route>
-                    <Route path="/add-book" exact>
-                        <AddBook/>
-                    </Route>
-                </Switch>
+                <Row>
+                    <OnlineBar Online={this.state.isOnline} />
+                </Row>
+                <Row>
+                    <Col md='3'>
+                        <NavBar />
+                    </Col>
+                    <Col md='9'>
+                        <Switch>
+                            <Route path="/" exact>
+                                <Books />
+                            </Route>
+                            <Route path="/add-book" exact>
+                                <AddBook/>
+                            </Route>
+                        </Switch>
+                    </Col>
+                </Row>
             </Router>
         );
     }

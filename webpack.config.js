@@ -1,5 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack');
+const path = require('path');
+const SRC = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
   module: {
@@ -10,7 +12,15 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader'
+      },
     ]
   },
   plugins: [

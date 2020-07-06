@@ -1,10 +1,10 @@
 import React from 'react'
-import { Input } from 'reactstrap'
+import { Input , Alert } from 'reactstrap'
 
 export default function ReactiveInput(props) {
     return(
         <>
-            <Input  style={{margin:'20px 0',display:'block'}}
+            <Input  style={props.hasError?{marginBottom:'2rem',borderBottom:'2px solid red'}:null}
                     type={props.type?props.type:'text'}
                     value={props.value?props.value:''}
                     onChange={(e)=>props.onChange(e.target.value)}
@@ -12,7 +12,9 @@ export default function ReactiveInput(props) {
                     placeholder={props.placeholder}
             />
             {props.hasError?(
-                <div>{props.errors}</div>
+                <Alert color="danger">
+                    {props.errors}
+                </Alert>
             ):null}
         </>
     )
