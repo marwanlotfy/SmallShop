@@ -29,8 +29,8 @@ class AddBook extends React.Component{
         const { book , disableSubmit } = this.state;
         return(
                 <Container>
+                    <div className='bookForm__container'>
                     <h1>Add Book To The Store</h1>
-                    <Row>
                         <ReactiveInput
                                 value={book.name}
                                 onChange={this.updateBook.bind(this,'name')}
@@ -52,9 +52,8 @@ class AddBook extends React.Component{
                                 hasError={this.bookServices.validator.hasErrorFor('price')}
                                 errors={this.bookServices.validator.getErrorFor('price')}
                         />
-
-                        <Button disabled={disableSubmit} onClick={()=>this.bookServices.addBookToStore(book)} >Add Book</Button>
-                    </Row>
+                        <Button className='bookForm__submitButton' disabled={disableSubmit} onClick={()=>this.bookServices.addBookToStore(book)} >Add Book</Button>
+                    </div>
                 </Container>
         )
     }
